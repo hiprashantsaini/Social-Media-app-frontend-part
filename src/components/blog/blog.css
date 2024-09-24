@@ -1,0 +1,337 @@
+
+.tweet {
+    /* background-color: white; */
+    background-color:var(--post-background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--post-shadow-color);
+    margin-bottom: 20px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    color: black;
+    position: relative;
+}
+
+.tweet.expand {
+    width: 100%;
+    border: 1px solid var(--expanded-post-border);
+}
+
+.expanded-media-container {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    /* background: radial-gradient(#f6d365 20%, #fda085 100%); Gradient background */
+    background: linear-gradient(var(--gradient-color1),var(--gradient-color3),var(--gradient-color4),var(--gradient-color1),var(--gradient-color2)); /* Gradient background */
+    border-radius: 10px;
+}
+
+.expanded-media {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px var(--expanded-media-boxShadow); /* Add shadow to media for better appearance */
+}
+
+.tweet .tweet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tweet-header {
+    /* border-bottom: 2px solid rgb(234, 233, 233); */
+    border-bottom: 2px solid var(--postHeader-border-bottom);
+}
+
+.tweet .tweet-header .username {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.username{
+    display: flex;
+    position: relative;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.username-dropdown{
+   top: -100px;
+   border: 1px solid black;
+   position: absolute;
+   width: 130px;
+   margin-top: 18px;
+   background-color: var(--header-background-color);
+   left: 0px;
+   padding: 5px 0px 10px 5px;
+   transition: 0.5s;
+}
+
+.username:hover, .username:hover .username-dropdown{
+    overflow: visible;
+    top: 0;
+}
+
+.trophy-icon{
+ color: var(--trophy-icon-color);
+}
+.user-points{
+    position: absolute;
+    left: 75px;
+    top:9px;
+    color: green;
+}
+
+.tweet .tweet-header .timestamp {
+    font-size: 12px;
+    color: var(--timestamp-color);
+}
+
+.tweet-body {
+    width: 100%;
+    margin-bottom: 40px;
+    max-height: 330px;
+    overflow: hidden;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.tweet-title {
+    font-size: 16px;
+    font-family: monospace;
+}
+
+.expanded-tweet-body {
+    width: 100%;
+    margin-bottom: 40px;
+    overflow-y: scroll; /* Allow inner scrolling */
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.expanded-tweet-body::-webkit-scrollbar{
+    display: none;
+}
+
+
+.expanded-description{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.descrip-button{
+    width: 125px;
+    align-items: center;
+    background-color: var(--button-background-color);
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.descrip-button:hover{
+    background-color: var(--button-background-colorHover);
+}
+
+.expanded-description .empty-h2{
+    width: 45%;
+    height: 5px;
+    background:radial-gradient(var(--gradient-color1),var(--gradient-color3),var(--gradient-color4),var(--gradient-color1),var(--gradient-color2));
+    border-radius: 10px;
+}
+
+.tweet-img, .tweet-video {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px var(--expanded-media-boxShadow);
+}
+
+.tweet-text {
+    width: 100%;
+    text-align: justify;
+}
+
+.tweet-content{
+    text-align: justify;
+}
+
+.tweet-engagement {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid var(--expanded-post-border);
+    padding-top: 10px;
+}
+
+.tweet-engagement button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--tweet-engagement-buttonColor);
+    font-weight: 500;
+}
+
+.tweet-icon-container{
+    width: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tweet-icons{
+    cursor: pointer;
+}
+
+/* Set all engagement icons at the bottom of the post when unexpanded */
+.tweet-engagement.tweet-engagementUnexpand {
+    position: absolute;
+    width: calc(100% - 40px);
+    margin: 5px auto;
+    bottom: 10px;
+}
+
+.tweet-comment-section {
+    display: none;
+    margin-top: 10px;
+}
+
+.tweet-textarea {
+    width: 100%;
+    border: 1px solid var(--tweet-textarea-border);
+    border-radius: 5px;
+    padding: 10px;
+    resize: none;
+    font-size: 16px;
+}
+
+.tweet-comment-list {
+    margin-top: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.tweet-comment-list::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .tweet {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .tweet {
+        width: 100%;
+    }
+
+    .tweet-body {
+        width: 100%;
+        margin-bottom: 35px;
+        max-height: 500px;
+        overflow: hidden;
+        padding: 4px;
+    }
+}
+
+/* share button css  */
+
+.share-button{
+    position: relative;
+}
+
+.share-button:hover .share-container{
+    display: block;
+}
+
+
+/***** CSS for point transfer ****/
+.transfer-model{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:var(--transfer-modal-backgroundColor) ;
+    z-index: 1;
+    overflow: auto;
+}
+
+.transfer-model-content{
+    background-color: var(--post-background-color);
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--post-shadow-color);
+}
+
+.transfer-model-close{
+  font-size: 28px;
+  float: right;
+  color: var(--lighter-text-color);
+  font-weight: bold;
+}
+
+.transfer-model-close:hover,
+.transfer-model-close:focus{
+    color: var(--bold-text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.transfer-point-form{
+    margin-bottom: 15px;
+}
+
+.transfer-point-form label{
+    display: block;
+    margin-bottom: 5px;
+    color: var(--light-text-color);
+}
+
+.transfer-point-form input{
+  width: calc(100% - 20px);
+  padding: 8px;
+  outline: none;
+  border: 1px solid var(--tweet-textarea-border);
+  border-radius: 4px;
+}
+
+.transfer-model-content button{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--transfer-model-background);
+    color: var(--transfer-model-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.transfer-model-content button:hover {
+    background-color: var(--transfer-model-hoverBackground);
+} 
+
+.comment-DeleteIcon{
+   position: relative;
+   top: 6px;
+ 
+}
+
+.comment-DeleteIcon:hover{
+    color: var(--submit-button-background);
+    cursor: pointer;
+}
+
+

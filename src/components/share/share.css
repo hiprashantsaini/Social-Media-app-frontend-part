@@ -1,0 +1,14 @@
+.share-container{
+    display: none;
+    width: 160px;
+    height:40px;
+    right: -30px;
+    position: absolute;
+    z-index: 100;
+}
+
+.icon{
+    width: 21px;
+    height: 35px;
+    margin: 2px;
+}

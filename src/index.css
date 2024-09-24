@@ -1,13 +1,573 @@
-body {
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html{
+  scroll-behavior: smooth;
 }
+
+/* -------- Themes ------  */
+
+:root{
+  --body-background-color:#F2FFFF;
+  --header-background-color:#4DE3BE;
+  --postHeader-border-bottom:rgb(234, 233, 233);
+  --bold-text-color:#052616;
+  --light-text-color:#052616;
+  --lighter-text-color:#aaa;
+  --post-background-color:#fff;
+  --post-shadow-color:#dddddd;
+  --border-bottom-color:#E4EAE9;
+  --expanded-post-border:rgb(93, 93, 93);
+  --expanded-media-boxShadow:rgba(241, 241, 210, 0.908);
+  --timestamp-color:#777;
+  --button-background-color:#4DE3BE;
+  --button-background-colorHover:#28B489;
+  --gradient-color1:rgb(255, 255, 145);
+  --gradient-color2:rgb(255, 144, 144);
+  --gradient-color3:rgb(152, 152, 255);
+  --gradient-color4:rgb(118, 255, 118);
+  --gradient-color5:rgb(247, 83, 206);
+  --trophy-icon-color:red;
+  --tweet-engagement-buttonColor:blue;
+  --tweet-textarea-border:#ccc;
+  --transfer-modal-backgroundColor:rgba(0, 0, 0, 0.4);/* position absolute z-index */
+  --transfer-model-background:#28a745;
+  --transfer-model-hoverBackground:#1c8033;
+  --transfer-model-color:#fff;
+  --input-background-color:#97f5ff;
+  --submit-button-background:red;
+  --submit-button-color:white;
+  --shadow-color:gray;
+ --body-color:black;
+ --plan-background-color:#edebeb;
+ --plan1-head-background:rgb(63, 247, 247);
+ --plan2-head-background:#17a2b8;
+ --plan3-head-background:#28a745;
+ --plan-body-color:rgb(98, 98, 98);
+   --button-background:blue;
+  --button-Hover-background:darkblue;
+  --button-color:#fff;
+  --profile-header-background:#007BFF;
+  --profile-header-color:#fff;
+
+  --verifyOtp-background:rgb(249, 109, 109);
+  --verifiedOtp-background:rgb(15, 245, 42);
+  --header-color:#080808;
+  --heading-color:white;
+  --p-color:#fff;
+}
+
+/*
+[hi-theme='Sunset']{
+  --body-background-color:#FFE4E1;
+  --plan-background-color:#FFDAB9;
+  --body-color:black;
+  --plan1-head-background:#FF4500;
+  --plan2-head-background:#FF8C00;
+  --plan3-head-background:#FFD700;
+  --plan-body-color:rgb(139, 69, 19);
+  --button-background:#FF6347;
+  --button-Hover-background:#FF4500;
+  --shadow-color:gray;
+  --button-color:#fff;
+  --header-background-color:hsl(30, 100%, 70%);
+  --header-color:#8B4513;
+  --heading-color:white;
+  --p-color:#fff;
+}*/
+
+[hi-theme='Sunset']{
+  --body-background-color: #FFFFFF; /* White */
+  --header-background-color: #4A90E2; /* Blue */
+  --postHeader-border-bottom: #DDDDDD; /* Light Gray */
+  --bold-text-color: #000000; /* Black */
+  --light-text-color: #333333; /* Dark Gray */
+  --lighter-text-color: #AAAAAA; /* Light Gray */
+  --post-background-color: #F7F7F7; /* Light Gray */
+  --post-shadow-color: #CCCCCC; /* Gray */
+  --border-bottom-color: #E0E0E0; /* Light Gray */
+  --expanded-post-border: #999999; /* Gray */
+  --expanded-media-boxShadow: #E8E8E8; /* Very Light Gray */
+  --timestamp-color: #888888; /* Gray */
+  --button-background-color: #4A90E2; /* Blue */
+  --button-background-colorHover: #357ABD; /* Darker Blue */
+  --gradient-color1: #FFDF00; /* Yellow */
+  --gradient-color2: #FF4500; /* Orange */
+  --gradient-color3: #6495ED; /* Light Blue */
+  --gradient-color4: #3CB371; /* Medium Sea Green */
+  --gradient-color5: #FF69B4; /* Hot Pink */
+  --trophy-icon-color: #FFD700; /* Gold */
+  --tweet-engagement-buttonColor: #1DA1F2; /* Twitter Blue */
+  --tweet-textarea-border: #DDDDDD; /* Light Gray */
+  --transfer-modal-backgroundColor: rgba(0, 0, 0, 0.5); /* Black */
+  --transfer-model-background: #28A745; /* Green */
+  --transfer-model-hoverBackground: #218838; /* Darker Green */
+  --transfer-model-color: #FFFFFF; /* White */
+  --input-background-color: #F1F1F1; /* Very Light Gray */
+  --submit-button-background: #DC3545; /* Red */
+  --submit-button-color: #FFFFFF; /* White */
+  --shadow-color: #888888; /* Gray */
+  --body-color: #000000; /* Black */
+  --plan-background-color: #F8F9FA; /* Light Gray */
+  --plan1-head-background: #17A2B8; /* Teal */
+  --plan2-head-background: #6C757D; /* Gray */
+  --plan3-head-background: #28A745; /* Green */
+  --plan-body-color: #6C757D; /* Gray */
+  --button-background: #007BFF; /* Blue */
+  --button-Hover-background: #0056B3; /* Darker Blue */
+  --button-color: #FFFFFF; /* White */
+  --profile-header-background: #4A90E2; /* Blue */
+  --profile-header-color: #FFFFFF; /* White */
+  --verifyOtp-background: #DC3545; /* Red */
+  --verifiedOtp-background: #28A745; /* Green */
+  --header-color: #FFFFFF; /* White */
+  --heading-color: #000000; /* Black */
+  --p-color: #333333; /* Dark Gray */
+}
+
+[pt-theme='Ocean']{
+    --body-background-color: #F2E6D9; /* Light Beige */
+    --header-background-color: #FF5733; /* Bright Red-Orange */
+    --postHeader-border-bottom: #FFC300; /* Bright Yellow */
+    --bold-text-color: #800000; /* Maroon */
+    --light-text-color: #4B0082; /* Indigo */
+    --lighter-text-color: #A0522D; /* Sienna */
+    --post-background-color: #FFFFFF; /* White */
+    --post-shadow-color: #E6E6E6; /* Light Gray */
+    --border-bottom-color: #FFC300; /* Bright Yellow */
+    --expanded-post-border: #FF4500; /* Orange Red */
+    --expanded-media-boxShadow: #FFD700; /* Gold */
+    --timestamp-color: #FFA07A; /* Light Salmon */
+    --button-background-color: #FF5733; /* Bright Red-Orange */
+    --button-background-colorHover: #C70039; /* Red */
+    --gradient-color1: #FF0000; /* Red */
+    --gradient-color2: #FF4500; /* Orange Red */
+    --gradient-color3: #FFD700; /* Gold */
+    --gradient-color4: #FF8C00; /* Dark Orange */
+    --gradient-color5: #FFA500; /* Orange */
+    --trophy-icon-color: #FFD700; /* Gold */
+    --tweet-engagement-buttonColor: #008080; /* Teal */
+    --tweet-textarea-border: #FF4500; /* Orange Red */
+    --transfer-modal-backgroundColor: rgba(0, 0, 0, 0.5); /* Black */
+    --transfer-model-background: #FF6347; /* Tomato */
+    --transfer-model-hoverBackground: #FF4500; /* Orange Red */
+    --transfer-model-color: #FFFFFF; /* White */
+    --input-background-color: #FFF5EE; /* Seashell */
+    --submit-button-background: #DC143C; /* Crimson */
+    --submit-button-color: #FFFFFF; /* White */
+    --shadow-color: #8B4513; /* Saddle Brown */
+    --body-color: #000000; /* Black */
+    --plan-background-color: #F8F9FA; /* Light Gray */
+    --plan1-head-background: #FF6347; /* Tomato */
+    --plan2-head-background: #FF4500; /* Orange Red */
+    --plan3-head-background: #FFD700; /* Gold */
+    --plan-body-color: #A52A2A; /* Brown */
+    --button-background: #FF4500; /* Orange Red */
+    --button-Hover-background: #C70039; /* Red */
+    --button-color: #FFFFFF; /* White */
+    --profile-header-background: #FF4500; /* Orange Red */
+    --profile-header-color: #FFFFFF; /* White */
+    --verifyOtp-background: #DC143C; /* Crimson */
+    --verifiedOtp-background: #32CD32; /* Lime Green */
+    --header-color: #FFFFFF; /* White */
+    --heading-color: #000000; /* Black */
+    --p-color: #800000; /* Maroon */
+  }
+  
+
+[ta-theme='Forest']{  --body-background-color: #F7F7F7; /* Light Gray */
+--header-background-color: #FFCC00; /* Yellow */
+--postHeader-border-bottom: #B3B3B3; /* Medium Gray */
+--bold-text-color: #000000; /* Black */
+--light-text-color: #333333; /* Dark Gray */
+--lighter-text-color: #999999; /* Gray */
+--post-background-color: #FFFFFF; /* White */
+--post-shadow-color: #CCCCCC; /* Light Gray */
+--border-bottom-color: #FFCC00; /* Yellow */
+--expanded-post-border: #333333; /* Dark Gray */
+--expanded-media-boxShadow: #E0E0E0; /* Light Gray */
+--timestamp-color: #666666; /* Medium Gray */
+--button-background-color: #FFCC00; /* Yellow */
+--button-background-colorHover: #E6B800; /* Dark Yellow */
+--gradient-color1: #FFCC00; /* Yellow */
+--gradient-color2: #FF4500; /* Orange Red */
+--gradient-color3: #FF6347; /* Tomato */
+--gradient-color4: #FF8C00; /* Dark Orange */
+--gradient-color5: #00ff7b; /* Orange */
+--trophy-icon-color: #00ff59; /* Gold */
+--tweet-engagement-buttonColor: #FF4500; /* Orange Red */
+--tweet-textarea-border: #B3B3B3; /* Medium Gray */
+--transfer-modal-backgroundColor: rgba(0, 0, 0, 0.5); /* Black */
+--transfer-model-background: #FFCC00; /* Yellow */
+--transfer-model-hoverBackground: #E6B800; /* Dark Yellow */
+--transfer-model-color: #000000; /* Black */
+--input-background-color: #F7F7F7; /* Light Gray */
+--submit-button-background: #E60000; /* Red */
+--submit-button-color: #FFFFFF; /* White */
+--shadow-color: #888888; /* Gray */
+--body-color: #000000; /* Black */
+--plan-background-color: #F8F9FA; /* Light Gray */
+--plan1-head-background: #FFCC00; /* Yellow */
+--plan2-head-background: #55ff60; /* Dark Gray */
+--plan3-head-background: #E60000; /* Red */
+--plan-body-color: #666666; /* Medium Gray */
+--button-background: #FFCC00; /* Yellow */
+--button-Hover-background: #E6B800; /* Dark Yellow */
+--button-color: #000000; /* Black */
+--profile-header-background: #FFCC00; /* Yellow */
+--profile-header-color: #000000; /* Black */
+--verifyOtp-background: #E60000; /* Red */
+--verifiedOtp-background: #32CD32; /* Lime Green */
+--header-color: #000000; /* Black */
+--heading-color: #333333; /* Dark Gray */
+--p-color: #000000; /* Black */
+} 
+
+[bn-theme='Lavender']{
+  --body-background-color: #FFF5E1; /* Light Beige */
+  --header-background-color: #DC143C; /* Crimson */
+  --postHeader-border-bottom: #B22222; /* Firebrick */
+  --bold-text-color: #393938; /* Dark Red */
+  --light-text-color: #A52A2A; /* Brown */
+  --lighter-text-color: #DEB887; /* Burly Wood */
+  --post-background-color: #FFFFF0; /* Ivory */
+  --post-shadow-color: #D2B48C; /* Tan */
+  --border-bottom-color: #F4A460; /* Sandy Brown */
+  --expanded-post-border: #8B4513; /* Saddle Brown */
+  --expanded-media-boxShadow: #FFE4C4; /* Bisque */
+  --timestamp-color: #A0522D; /* Sienna */
+  --button-background-color: #DC143C; /* Crimson */
+  --button-background-colorHover: #B22222; /* Firebrick */
+  --gradient-color1: #FF4500; /* Orange Red */
+  --gradient-color2: #FF6347; /* Tomato */
+  --gradient-color3: #FFD700; /* Gold */
+  --gradient-color4: #FF8C00; /* Dark Orange */
+  --gradient-color5: #FFA500; /* Orange */
+  --trophy-icon-color: #FFD700; /* Gold */
+  --tweet-engagement-buttonColor: #8B0000; /* Dark Red */
+  --tweet-textarea-border: #D2B48C; /* Tan */
+  --transfer-modal-backgroundColor: rgba(0, 0, 0, 0.5); /* Black */
+  --transfer-model-background: #FF6347; /* Tomato */
+  --transfer-model-hoverBackground: #FF4500; /* Orange Red */
+  --transfer-model-color: #FFFFFF; /* White */
+  --input-background-color: #FFE4C4; /* Bisque */
+  --submit-button-background: #8B0000; /* Dark Red */
+  --submit-button-color: #FFFFFF; /* White */
+  --shadow-color: #A52A2A; /* Brown */
+  --body-color: #8B0000; /* Dark Red */
+  --plan-background-color: #F8F9FA; /* Light Gray */
+  --plan1-head-background: #DC143C; /* Crimson */
+  --plan2-head-background: #37cad5; /* Dark Red */
+  --plan3-head-background: #FFD700; /* Gold */
+  --plan-body-color: #8B4513; /* Saddle Brown */
+  --button-background: #DC143C; /* Crimson */
+  --button-Hover-background: #B22222; /* Firebrick */
+  --button-color: #FFFFFF; /* White */
+  --profile-header-background: #DC143C; /* Crimson */
+  --profile-header-color: #FFFFFF; /* White */
+  --verifyOtp-background: #DC143C; /* Crimson */
+  --verifiedOtp-background: #32CD32; /* Lime Green */
+  --header-color: #FFFFFF; /* White */
+  --heading-color: #8B0000; /* Dark Red */
+  --p-color: #8B4513; /* Saddle Brown */
+}
+
+[fr-theme='Autumn']{
+  --body-background-color: #FFF8E1; /* Light Beige */
+  --header-background-color: #FF5722; /* Deep Orange */
+  --postHeader-border-bottom: #FFD54F; /* Amber */
+  --bold-text-color: #0b0b0b; /* Rust */
+  --light-text-color: #555555; /* Deep Red */
+  --lighter-text-color: #FFA726; /* Orange */
+  --post-background-color: #FFFFFF; /* White */
+  --post-shadow-color: #FFCCBC; /* Light Orange */
+  --border-bottom-color: #FFAB91; /* Light Coral */
+  --expanded-post-border: #D84315; /* Rust */
+  --expanded-media-boxShadow: #FFE0B2; /* Light Orange */
+  --timestamp-color: #FF8A65; /* Coral */
+  --button-background-color: #FF5722; /* Deep Orange */
+  --button-background-colorHover: #E64A19; /* Dark Orange */
+  --gradient-color1: #FFEB3B; /* Yellow */
+  --gradient-color2: #FFC107; /* Amber */
+  --gradient-color3: #FF9800; /* Orange */
+  --gradient-color4: #FF5722; /* Deep Orange */
+  --gradient-color5: #FF1744; /* Red */
+  --trophy-icon-color: #FFD700; /* Gold */
+  --tweet-engagement-buttonColor: #D84315; /* Rust */
+  --tweet-textarea-border: #FFAB91; /* Light Coral */
+  --transfer-modal-backgroundColor: rgba(0, 0, 0, 0.5); /* Black */
+  --transfer-model-background: #FF5722; /* Deep Orange */
+  --transfer-model-hoverBackground: #E64A19; /* Dark Orange */
+  --transfer-model-color: #FFFFFF; /* White */
+  --input-background-color: #FFF3E0; /* Light Orange */
+  --submit-button-background: #FF1744; /* Red */
+  --submit-button-color: #FFFFFF; /* White */
+  --shadow-color: #D84315; /* Rust */
+  --body-color: #D84315; /* Rust */
+  --plan-background-color: #FFF8E1; /* Light Beige */
+  --plan1-head-background: #FF5722; /* Deep Orange */
+  --plan2-head-background: #FF9800; /* Orange */
+  --plan3-head-background: #FFC107; /* Amber */
+  --plan-body-color: #FF6F00; /* Dark Orange */
+  --button-background: #FF5722; /* Deep Orange */
+  --button-Hover-background: #531401; /* Dark Orange */
+  --button-color: #FFFFFF; /* White */
+  --profile-header-background: #FF5722; /* Deep Orange */
+  --profile-header-color: #FFFFFF; /* White */
+  --verifyOtp-background: #FF5722; /* Deep Orange */
+  --verifiedOtp-background: #32CD32; /* Lime Green */
+  --header-color: #FFFFFF; /* White */
+  --heading-color: #D84315; /* Rust */
+  --p-color: #BF360C; /* Deep Red */
+}
+
+[es-theme='Berry']{
+  --body-background-color: #FFF9C4; /* Light Yellow */
+  --header-background-color: #4CAF50; /* Green */
+  --postHeader-border-bottom: #C8E6C9; /* Light Green */
+  --bold-text-color: #050505; /* Dark Green */
+  --light-text-color: #4c4a4a; /* Green */
+  --lighter-text-color: #81C784; /* Light Green */
+  --post-background-color: #FFFFFF; /* White */
+  --post-shadow-color: #A5D6A7; /* Light Green */
+  --border-bottom-color: #66BB6A; /* Green */
+  --expanded-post-border: #2E7D32; /* Green */
+  --expanded-media-boxShadow: #C8E6C9; /* Light Green */
+  --timestamp-color: #66BB6A; /* Green */
+  --button-background-color: #4CAF50; /* Green */
+  --button-background-colorHover: #388E3C; /* Dark Green */
+  --gradient-color1: #FFEB3B; /* Yellow */
+  --gradient-color2: #FFC107; /* Amber */
+  --gradient-color3: #FF9800; /* Orange */
+  --gradient-color4: #FF5722; /* Deep Orange */
+  --gradient-color5: #FF1744; /* Red */
+  --trophy-icon-color: #FFD700; /* Gold */
+  --tweet-engagement-buttonColor: #4CAF50; /* Green */
+  --tweet-textarea-border: #C8E6C9; /* Light Green */
+  --transfer-modal-backgroundColor: rgba(0, 0, 0, 0.5); /* Black */
+  --transfer-model-background: #4CAF50; /* Green */
+  --transfer-model-hoverBackground: #388E3C; /* Dark Green */
+  --transfer-model-color: #FFFFFF; /* White */
+  --input-background-color: #C8E6C9; /* Light Green */
+  --submit-button-background: #FF1744; /* Red */
+  --submit-button-color: #FFFFFF; /* White */
+  --shadow-color: #388E3C; /* Dark Green */
+  --body-color: #1B5E20; /* Dark Green */
+  --plan-background-color: #FFF9C4; /* Light Yellow */
+  --plan1-head-background: #4CAF50; /* Green */
+  --plan2-head-background: #66BB6A; /* Green */
+  --plan3-head-background: #2E7D32; /* Green */
+  --plan-body-color: #388E3C; /* Dark Green */
+  --button-background: #4CAF50; /* Green */
+  --button-Hover-background: #388E3C; /* Dark Green */
+  --button-color: #FFFFFF; /* White */
+  --profile-header-background: #4CAF50; /* Green */
+  --profile-header-color: #FFFFFF; /* White */
+  --verifyOtp-background: #4CAF50; /* Green */
+  --verifiedOtp-background: #32CD32; /* Lime Green */
+  --header-color: #FFFFFF; /* White */
+  --heading-color: #1B5E20; /* Dark Green */
+  --p-color: #2E7D32; /* Green */
+}
+
+
+
+body {
+  background-color: var(--body-background-color);
+  transition: background-color 0.5s;
+}
+
+/* ---- Home.js css ------  */
+.home{
+  width: 100vw;
+  height: 100%;
+}
+
+/* -------- Header css -----  */
+
+.header{
+  width: 95%;
+  margin: 0px auto;
+  border-radius: 5px;
+  height: 50px;
+  background-color: var(--header-background-color);
+  display: flex;
+  color: var(--bold-text-color);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-icon{
+  display: none !important;
+}
+
+.closeMenu-icon{
+  display: none !important;
+}
+
+.select-langs{
+  border-radius: 5px;
+  margin-right: 20px;
+  background-color: #acf2ce00;
+  padding: 5px;
+}
+
+.navbar ul{
+  list-style: none;
+}
+
+.navbar ul li{
+  display: inline-block;
+  height: 100%;
+  margin: 10px;
+  color: var(--bold-text-color);
+  position: relative;
+}
+
+.navbar ul li a{
+  color: var(--bold-text-color);
+}
+
+@media (max-width:600px){
+
+  .navbar{
+    width: 150px;
+    position: relative;
+    left: -350px;
+    box-shadow: 0 0 10px rgb(169, 172, 166);
+    border-radius: 5px;
+    margin-top: 140px;
+    padding:20px 0px 20px 20px;
+    transition: left 0.5s ease-in-out;
+    background-color: var(--header-background-color);
+
+  }
+
+  .activeNav{
+    left: 10px;
+  }
+
+  .navbar ul li{
+    display: block;/* change inline-block to block */
+    width: 60px;
+  }
+
+  .active-menu-icon{
+    display: block !important;
+    margin-left: 20px;
+    cursor: pointer !important;
+  }
+
+  .closeMenu-icon{
+    display: block !important;
+    margin-left: 5px !important;
+    margin-top: 10px;
+  }
+
+  .closeMenu-icon:hover{
+    color: red;
+    cursor: pointer;
+  }
+}
+
+/*  Link componene has wraped <a> tag  */
+.navbar ul li a{
+  text-decoration: none;
+}
+
+.navbar ul li a::after{
+  content: '';
+  position:absolute;
+  width: 0;
+  height: 3px;
+  background-color: blue;
+  left: 0;
+  bottom: -4px;
+  transition: 0.5s;
+}
+
+.navbar ul li a:hover::after{
+  width: 100%;
+}
+
+
+/* ..... .coverpage ----  */
+.coverpage{
+  width: 95%;
+  margin: 5px auto;
+  border-radius: 5px;
+  height: 300px;
+  /* border: 2px solid blue; */
+  background: linear-gradient(20deg,var(--profile-header-color),yellow,var(--post-background-color),var(--gradient-color4),var(--button-background-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* .....body css .....  */
+.body{
+  width: 100%;
+  margin: 5px auto;
+  border-radius: 5px;
+
+}
+
+/* ..........Blog........  */
+
+.blogContainer {
+  width: 90%;
+  /* border: 1px solid red; */
+  max-width: 1200px;
+  margin: 20px auto 20px auto;
+}
+
+.feed{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+ .otp-verification{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  right: 30px;
+  top: -250px;
+  padding: 10px;
+  z-index: 10;
+  transition: 0.5s;
+}
+
+.otp-verification input,.otp-verification button{
+  text-align: center;
+  width: 100%;
+  margin: 5px auto;
+  padding: 10px;
+  font-size: 18px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.otp-verification input{
+  background-color: var(--input-background-color);
+  color: var(--bold-text-color);
+}
+
+.otp-verification button{
+  background-color: var(--submit-button-background);
+  color: var(--submit-button-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.active-otp{
+  top:50px;
+} 

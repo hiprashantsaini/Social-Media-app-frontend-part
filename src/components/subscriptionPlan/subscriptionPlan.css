@@ -1,0 +1,90 @@
+.subscription{
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-background-color);
+}
+
+.subscription-body{
+    width: 95%;
+    height: auto;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.subscription-body h1{
+    color:var(--body-color);
+    text-align: center;
+}
+
+.plans{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+/* ----- basic-plan -----  */
+.basic-plan{
+    width: 200px;
+    height: 400px;
+    max-width: 250px;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: var(--plan-background-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--shadow-color);
+    transition: transform 0.5s;
+}
+
+.basic-plan:hover{
+    transform:translateY(-10px)
+}
+
+.plan-head{
+    width: 100%;
+    background-color: var(--plan1-head-background);
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.plan-head p span{
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.plan-body{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.plan-body p{
+    color: var(--plan-body-color);
+}
+
+.plan-button{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.plan-button button{
+    background-color: var(--button-background);
+    color:var(--button-color);
+    padding: 10px 0px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+}
+
+.plan-button button:hover{
+    background-color: var(--button-Hover-background);
+}

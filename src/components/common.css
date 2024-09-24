@@ -1,0 +1,10 @@
+body{
+    --body-background-color:var(#F2FFFF);
+    --header-background-color:var(#4DE3BE);
+    --bold-text-color:var(#052616);
+    --light-text-color:var(#052616);
+    --post-background-color:var(#F2FFFF);
+    --post-shadow-color:var(#dcdcdc);
+    --border-bottom-color:var(#E4EAE9);
+}
+    

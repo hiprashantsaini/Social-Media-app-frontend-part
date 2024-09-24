@@ -1,0 +1,193 @@
+.profile-container{
+    width: 100%;
+    font-family: Arial, sans-serif;
+    height: auto;
+}
+
+.profile-header{
+    width: 100%;
+    background-color: var(--profile-header-background);
+    color: var(--profile-header-color);
+    text-align: center;
+    padding: 15px;
+}
+
+.profile-nav{
+    margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.profile-nav li{
+    color: var(--profile-header-color);
+    display: inline;
+    list-style-type: none;
+}
+
+.profile-nav li a{
+    text-decoration: none;
+    color: var(--profile-header-color);
+}
+
+.profile-nav li a:hover{
+    text-decoration: none;
+    color: var(--trophy-icon-color);
+}
+
+.profile-body{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section{
+    padding: 10px;
+    width: 60%;
+}
+
+.section h2{
+    border-bottom:2px solid var(--profile-header-background);
+    padding: 5px;
+    margin: 10px 0px;
+}
+
+.section p{
+    margin: 10px 0px;
+}
+
+#language-select{
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    background-color: var(--header-background-color);
+}
+
+/* ** Profile post ** */
+
+.post-container{
+    width: 100%;
+
+}
+
+.post-content{
+    width: 100%;
+    margin: 20px 0px;
+    box-shadow: 0 0 10px var(--post-shadow-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.post-media{
+    width: 100%;
+    max-height: 340px;
+    display: flex;
+    justify-content: center;
+}
+
+.post-img, .post-video{
+    max-height: 320px;
+    max-width: calc(100% - 10px); /* Because blog-section has 60% width of whole body */
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.post-content p{
+    position: relative;
+    padding-right: 20px;
+    text-align: justify;
+}
+
+.comment-delete-icon{
+    position: absolute;
+    top: -4px;
+    right: -8px;
+}
+
+.comment-delete-icon:hover{
+    color: var(--submit-button-background);
+    cursor: pointer;
+}
+
+.edit-icon{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.edit-icon:hover{
+    color: var(--button-background);
+    cursor: pointer;
+}
+
+@media (max-width: 600px){
+    .section{
+        padding: 10px;
+        width: 90%;
+    }
+
+    .post-media{
+        max-height: 200px;
+    }
+
+    .post-img, .post-video{
+        max-height: 200px;
+        text-align: center;
+        max-width: calc(90%);
+        padding: 10px 0px;
+    }
+}
+
+.profile-otpVerify{
+    width: 100%;
+    display: none;
+    padding: 10px 20px;
+    margin: 10px 0px;
+}
+
+.profile-otpVerify input, .profile-otpVerify button{
+    width: 100%;
+    padding: 10px;
+}
+
+.profile-otpVerify input{
+    background-color: var(--input-background-color);
+    color: var(--bold-text-color);
+}
+
+
+.profile-otpVerify button{
+    background-color: var(--submit-button-background);
+    color: var(--submit-button-color);
+    font-weight: 600;
+  cursor: pointer;
+}
+
+.active-otp{
+   display: block;
+  }
+
+.update-title-form{
+    width: 100%;
+    padding: 10px;
+  }
+.update-title-form input{
+    width: 100%;
+    outline: none;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.update-title-form button{
+    padding: 5px 10px;
+    margin: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
